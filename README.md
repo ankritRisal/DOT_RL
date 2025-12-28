@@ -1,138 +1,114 @@
+# Reinforcement Learning based object identification and transportation
+## Overview
 
-# 🚚 Smart Logistic Transportation using Reinforcement Learning
+This project is focused on implementating Reinforcement learning in grid world  based agent for object identification and transporation. It demonstrates how intelligent agents can learn optimal pickup and delivery strategies in a simulated environment through trial and error, without explicit programming of routes or behaviors.
 
-A multi-agent reinforcement learning (MARL) project designed to optimize pickup and delivery tasks in a grid-based logistics environment. This project leverages Q-learning to train independent agents to navigate, avoid obstacles, and efficiently deliver items in a simulated 10x10 warehouse grid.
+The system models a multi-agent grid-based environment, where each agent independently learns to pick up an assigned object and deliver it to a specific destination while avoiding obstacles. The learning process is implemented using Q-learning, a classical reinforcement learning algorithm.
 
----
+This project was developed as a Major Project in partial fulfillment of the Bachelor of Engineering in Computer Engineering.
 
-## 📌 Table of Contents
+## Abstract Summary
 
-- [Project Overview](#project-overview)
-- [Key Features](#key-features)
-- [Architecture](#architecture)
-- [Algorithms Used](#algorithms-used)
-- [Results](#results)
-- [Installation & Setup](#installation--setup)
-- [Usage](#usage)
-- [Limitations](#limitations)
-- [Future Enhancements](#future-enhancements)
-- [Team](#team)
-- [License](#license)
+This project explores how reinforcement learning can be used to train autonomous agents that learn efficient delivery routes.
 
----
+A 10×10 grid environment with multiple agents, objects, goals, and obstacles is designed. Each agent learns independently using Q-learning to minimize delivery time and complete pickup-and-drop tasks efficiently. After training an agents successfully converge to optimal policies, demonstrating improved routing and task completion.
 
-## 🧠 Project Overview
+## Key Features
 
-In this project, we simulate a smart logistic warehouse system where 3 autonomous agents independently pick up and deliver 3 objects to their respective goals in a 10x10 grid world with static obstacles. The agents are trained using the Q-learning algorithm to develop optimal delivery policies through trial and error over 10,000 episodes.
+* Multi-agent grid-based simulation
+* Independent Q-learning for each agent (separate Q-table for each agent)
+* Obstacle avoidance 
+* Pickup and delivery task modeling
+* Visual representation of agent behavior
+* Scalable design for future extensions
 
-This system highlights the potential of reinforcement learning in real-world logistic automation by minimizing delivery time and avoiding collisions.
+## System Design
+### Environment
+* Grid size: 10 × 10
+* Agents: 3
+* Objects: 3
+* Goals: 3
+* Obstacles: Static
+* Each agent has one corresponding object and goal
 
----
+### Agent Capabilities
+* Move in four directions: up, down, left, right
+* Pick up assigned object
+* Transport object to goal
+* Avoid obstacles
 
-## ✨ Key Features
+## Reinforcement Learning Approach
+### Algorithm Used
+* Q-learning (Table-based)
 
-- Multi-agent environment with 3 agents, 3 objects, and 3 goals
-- Independent Q-learning (no centralized controller)
-- 10x10 grid environment with obstacles
-- Separate Q-tables for pickup and delivery phases
-- Visualization of environment state and agent movements
-- Modular and extendable simulation code
+## Learning Strategy
 
----
+* Independent learning for each agent
+* No centralized controller
+* Fully observable environment
+* Epsilon-greedy policy for exploration and exploitation
 
-## 🧰 Architecture
+## Reward Structure
 
-- **Environment**: 10x10 grid world with positions for agents, objects, goals, and obstacles
-- **Agent Design**:
-  - Moves in 4 directions: up, down, left, right
-  - Learns through rewards (+0 for success, -1 otherwise)
-- **State Space**: (x, y) location of the agent in the grid
-- **Action Space**: ['UP', 'DOWN', 'LEFT', 'RIGHT']
-- **Reward System**:
-  - Penalizes every time step (-1)
-  - Zero reward on successful delivery
+* Negative reward for each time step to encourage faster delivery
+* Zero reward on successful goal completion
+* Penalties for invalid moves or collisions
 
----
+## Training Details
+* Q-table size per agent: (10, 10, 4) => (grid size, grid size, number of agents)
+* Separate Q-tables for each agent:
+    * Agent moving to object
+    * Agent carrying object to goal
 
-## 📚 Algorithms Used
+## Results
+### Before Training
 
-### Q-Learning
-A value-based reinforcement learning algorithm is used for each agent independently.
+* Agents move randomly
+* No clear direction toward objects or goals
+* Inefficient and delayed deliveries
 
-#### Q-Update Rule:
-\[
-Q(s, a) \leftarrow Q(s, a) + \alpha [R + \gamma \max_a Q(s', a') - Q(s, a)]
-\]
+![Result Page](output.png)
 
-- \(\alpha\) (alpha): Learning rate  
-- \(\gamma\) (gamma): Discount factor  
-- \(\epsilon\)-greedy: Exploration strategy
+### After Training
 
----
+* Agents follow optimized paths
+* Successful pickup and delivery
+* Reduced travel time
+* Effective obstacle avoidance
 
-## 📊 Results
+The results validate that reinforcement learning can successfully train autonomous agents for object transportation tasks.
 
-- Agents successfully learned optimal pickup and delivery policies.
-- Converged within 10,000 episodes.
-- Trained agents avoided obstacles and minimized delivery time.
-- Visualization plots show significant improvement after training.
+## Technologies and Concepts Used
 
----
+* Python
+* Reinforcement Learning
+* Q-learning
+* Multi-Agent Systems
+* Markov Decision Process (MDP)
+* Grid-based Simulation
 
-## ⚙️ Installation & Setup
+## Limitations
 
-### Prerequisites
-- Python 3.8+
-- Jupyter Notebook / VS Code / Any Python IDE
+* Uses table-based Q-learning, which does not generalize well to large or continuous environments
+* Objects and goals are static
+* No agent coordination or communication
 
-### Libraries
-```bash
-pip install numpy matplotlib
-```
 
-### Running the Code
-```bash
-jupyter notebook gridX10_Testing.ipynb
-```
+# Project Team
 
----
+**Ankrit Risal**  
+**Aayush Basnet**  
+**Bhuwan Dhakal** 
 
-## 🕹️ Usage
+## Supervisor
 
-1. Modify grid environment and initialize agent, object, and goal locations in `gridX10_Testing.ipynb`.
-2. Run the Q-learning training cell.
-3. Visualize agent navigation before and after training.
+**Dr. Dibakar Raj Panta**  
+Associate Professor  
+Department of Electronics and Computer Engineering, Institute of Engineering, Kathmandu
 
----
+## Institution
 
-## 🚧 Limitations
-
-- Does not generalize to dynamic or unseen environments (no neural networks).
-- Object and goal positions are static.
-- Requires retraining for any change in configuration.
-
----
-
-## 🚀 Future Enhancements
-
-- Use deep Q-networks (DQN) for better generalization.
-- Add dynamic goals/objects and randomized environments.
-- Introduce cooperative strategies between agents.
-- Real-world robotic simulation integration.
-
----
-
-## 👨‍💻 Team
-
-| Name           | Role           |
-|----------------|----------------|
-| Aayush Basnet  | Developer      |
-| Ankrit Risal   | Developer      |
-| Bhuwan Dhakal  | Developer      |
-| Supervisor     | Dr. Dibakar Raj Panta, Associate Professor |
-
----
-
-## 📄 License
-
-This project is for academic and educational purposes. For usage and publication rights, contact the [Department of Electronics and Computer Engineering, ACEM].
+Advanced College of Engineering and Management
+Institute of Engineering, Tribhuvan University
+Kathmandu, Nepal
+2025
