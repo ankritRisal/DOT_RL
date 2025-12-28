@@ -67,7 +67,7 @@ A 10×10 grid environment with multiple agents, objects, goals, and obstacles is
 * No clear direction toward objects or goals
 * Inefficient and delayed deliveries
 
-![Result Page](output.png)
+![Result Page](beforeresultsteps.png)
 
 ### After Training
 
