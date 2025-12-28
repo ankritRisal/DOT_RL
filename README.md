@@ -1,7 +1,7 @@
 # Reinforcement Learning based object identification and transportation
 ## Overview
 
-This project is focused on implementating Reinforcement learning in grid world  based agent for object identification and transporation. It demonstrates how intelligent agents can learn optimal pickup and delivery strategies in a simulated environment through trial and error, without explicit programming of routes or behaviors.
+This project is ofically named `SMART LOGISTIC TRASPORTATION USING REINFORCEMENT LEARNING` which focus on implementating Reinforcement learning in grid world  based agent for object identification and transporation. It demonstrates how intelligent agents can learn optimal pickup and delivery strategies in a simulated environment through trial and error, without explicit programming of routes or behaviors.
 
 The system models a multi-agent grid-based environment, where each agent independently learns to pick up an assigned object and deliver it to a specific destination while avoiding obstacles. The learning process is implemented using Q-learning, a classical reinforcement learning algorithm.
 
