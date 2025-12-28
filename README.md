@@ -61,6 +61,9 @@ A 10×10 grid environment with multiple agents, objects, goals, and obstacles is
     * Agent carrying object to goal
 
 ## Results
+## Environment Description 
+![Result Page](env.png)
+
 ### Before Training
 
 * Agents move randomly
@@ -68,6 +71,7 @@ A 10×10 grid environment with multiple agents, objects, goals, and obstacles is
 * Inefficient and delayed deliveries
 
 ![Result Page](beforeresultsteps.png)
+![Result Page](beforepolicy.png)
 
 ### After Training
 
@@ -75,6 +79,9 @@ A 10×10 grid environment with multiple agents, objects, goals, and obstacles is
 * Successful pickup and delivery
 * Reduced travel time
 * Effective obstacle avoidance
+* 
+![Result Page](aftersteps.png)
+![Result Page](afterpolicy.png)
 
 The results validate that reinforcement learning can successfully train autonomous agents for object transportation tasks.
 
@@ -108,7 +115,7 @@ Department of Electronics and Computer Engineering, Institute of Engineering, Ka
 
 ## Institution
 
-Advanced College of Engineering and Management
+Advanced College of Engineering and Management  
 Institute of Engineering, Tribhuvan University
 Kathmandu, Nepal
 2025
