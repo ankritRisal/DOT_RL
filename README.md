@@ -79,7 +79,7 @@ A 10×10 grid environment with multiple agents, objects, goals, and obstacles is
 * Successful pickup and delivery
 * Reduced travel time
 * Effective obstacle avoidance
-* 
+
 ![Result Page](aftersteps.png)
 ![Result Page](afterpolicy.png)
 
@@ -116,6 +116,6 @@ Department of Electronics and Computer Engineering, Institute of Engineering, Ka
 ## Institution
 
 Advanced College of Engineering and Management  
-Institute of Engineering, Tribhuvan University
-Kathmandu, Nepal
+Institute of Engineering, Tribhuvan University  
+Kathmandu, Nepal  
 2025
